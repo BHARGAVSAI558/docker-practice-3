@@ -1,10 +1,10 @@
-services:
+ services:
   mysqldb:
     image: mysql:8
     container_name: mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: docker
-      MYSQL_DATABASE: jenkinsdbs
+      MYSQL_DATABASE: hellodbs
     ports:
       - "3307:3306"
     volumes:
@@ -13,7 +13,7 @@ services:
       - springboot-mysql-net
 
   backend:
-    image: bhargavsai558/practice-backend:latest
+    image: bhargavsai558/dockerpractice-backend:latest
     container_name: springboot
     ports:
       - "2025:502"
@@ -24,7 +24,7 @@ services:
       - springboot-mysql-net
 
   frontend:
-    image: bhargavsai558/practice-frontend:latest
+    image: bhargavsai558/dockerpractice-frontend:latest
     container_name: react
     ports:
       - "3000:80"
@@ -34,8 +34,8 @@ services:
     networks:
       - springboot-mysql-net
 
-  volumes:
-   mysql_data:
+ volumes:
+  mysql_data:
 
-  networks:
-   springboot-mysql-net:
+ networks:
+  springboot-mysql-net:
