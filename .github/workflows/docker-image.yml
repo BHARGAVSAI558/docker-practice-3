@@ -26,8 +26,8 @@ jobs:
       - name: Build and push backend image
         uses: docker/build-push-action@v5
         with:
-          context: ./BACKEND/jenkins-backend
-          file: ./BACKEND/jenkins-backend/backend.Dockerfile
+          context: ./BACKEND/docker-backend
+          file: ./BACKEND/docker-backend/backend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/dockerpractice-backend:latest
 
